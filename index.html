@@ -671,7 +671,7 @@ function renderAvatarBtn(){
   const img = $('#avatarImg'), def = $('#avatarDefault');
   if(a && AVATAR_SRC[a.id]){
     img.src = AVATAR_SRC[a.id]; img.hidden = false; def.hidden = true;
-    $('#avatarBtn').title = '当前头像：' + avName(a) + '（点击更换）';
+    $('#avatarBtn').title = '点我换个头像';
   }else{
     img.removeAttribute('src'); img.hidden = true; def.hidden = false;
     $('#avatarBtn').title = '点我换个头像';
@@ -685,7 +685,7 @@ function renderAvatarGrid(){
     const sel = (state.avatar || 'default') === it.id;
     const inner = it.src ? `<img src="${it.src}" alt="" loading="lazy">` : `<span class="ph">🤖</span>`;
     return `<div class="av-item">
-      <button class="av-opt${sel?' sel':''}" data-id="${it.id}" data-name="${esc(it.name)}" title="${esc(it.name)}">${inner}</button>
+      <button class="av-opt${sel?' sel':''}" data-id="${it.id}">${inner}</button>
       <span class="av-cap">${esc(it.name)}</span>
     </div>`;
   }).join('');
